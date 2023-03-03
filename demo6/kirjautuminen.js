@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", onkokirjautunut);
 function onkokirjautunut(){
     let kirjautunut = 'kylla';
-    if (kijrautunut === 'kylla'){
+    if (kirjautunut === 'kylla'){
        document.getElementById('tervetuloa teksti'). textContent += 'Otto!';
 
     }
