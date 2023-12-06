@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
+  <meta charset="UTF-8">
   <script src="hirsipuu.js"></script>
   <link rel="stylesheet" href="hirssipuu.css">
 
 <head>
-  <h1>hirssipuu</h1>
+  <h1>Hirssipuu</h1>
     <title>Document</title>
  
 </head>
-<body>
-  <img src="kuvat/hirtto1.png" alt="kuva"  style="float:middle">
-  <p id="confirm">Oletko varma että haluat kokeilla </p>
-  <input id="button" type="button" onclick="painettu()">
-  
+<body onload="aloitus()">
+  <p id="kokeiltu">Testatut Kirjaimet</p>
+  <img id="kuva" src="kuvat/hirtto1.png" alt="kuva"  style="visibility: hidden;">
+  <p id="confirm"> </p>
+  <p></p>
+  <input id="button" type="button" onclick="painettu()" >
+<h2 id="sana"></h2>
+
   <p id="log"></p>
 </body>
 </html>
