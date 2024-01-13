@@ -5,10 +5,10 @@ const pilkottu_sana = satunnainen.split('');
 var syotetty_pilkottu = "";
 let vaarin = 0;
 var kuvake = document.getElementById("kuva");
-var oikea_aani = new Audio("C:\\Users\\Matias\\OneDrive\\Tiedostot\\matiaslin-keuda.github.io\\Hirsipuu\\kuvat\\ding-sound-effect_1.mp3");
-var vaara_aani =  new Audio("C:\\Users\\Matias\\OneDrive\\Tiedostot\\matiaslin-keuda.github.io\\Hirsipuu\\kuvat\\extremely-loud-incorrect-buzzer_0cDaG20.mp3");
-var voitto_aani = new Audio("C:\\Users\\Matias\\OneDrive\\Tiedostot\\matiaslin-keuda.github.io\\Hirsipuu\\kuvat\\yippee-tbh.mp3")
-var over_aani = new Audio("C:\\Users\\Matias\\OneDrive\\Tiedostot\\matiaslin-keuda.github.io\\Hirsipuu\\kuvat\\super-mario-death-sound-sound-effect.mp3")
+var oikea_aani = new Audio("kuvat\\ding-sound-effect_1.mp3");
+var vaara_aani =  new Audio("kuvat\\extremely-loud-incorrect-buzzer_0cDaG20.mp3");
+var voitto_aani = new Audio("kuvat\\yippee-tbh.mp3")
+var over_aani = new Audio("kuvat\\super-mario-death-sound-sound-effect.mp3")
 document.addEventListener('keydown', (event) => {
 if(vaarin==7){}
 else{
@@ -38,7 +38,7 @@ function painettu() {
       syotetty += " " + painet;
 
 
-      document.getElementById("kokeiltu").innerHTML = "Testatut Kirjaimet" + syotetty;
+      document.getElementById("kokeiltu").innerHTML = "Testatut Kirjaimet: " + syotetty;
 
 
       if (pilkottu_sana.includes(painet) || syotetty_pilkottu.includes(painet)) {
@@ -92,6 +92,7 @@ function painettu() {
     }
     aloitus(); syotasana()
     function syotasana() {
+     
       var textboxarvo = document.getElementById("textbox").value.toLowerCase();
       if (textboxarvo === satunnainen.toLowerCase()) {
         voitto_aani.play();
@@ -101,9 +102,9 @@ function painettu() {
         vaarin++;
         vaara();
         vaara_aani.play();
-   
       }
-    }
+      }
+    
     function vaara() {
       switch (vaarin) {
         case 1:
@@ -111,28 +112,28 @@ function painettu() {
           vaara_aani.play();
           break;
         case 2:
-          document.getElementById("kuva").src = "C:\\Users\\Matias\\OneDrive\\Tiedostot\\kuvat\\hirtto3v2.png";
+          document.getElementById("kuva").src = "kuvat\\hirtto3v2.png";
           vaara_aani.play();
           break;
         case 3:
-          document.getElementById("kuva").src = "C:\\Users\\Matias\\OneDrive\\Tiedostot\\kuvat\\hirtto5v2.png";
+          document.getElementById("kuva").src = "kuvat\\hirtto5v2.png";
           vaara_aani.play();
           break;
         case 4:
-          document.getElementById("kuva").src = "C:\\Users\\Matias\\OneDrive\\Tiedostot\\kuvat\\hirtto7v2.png";
+          document.getElementById("kuva").src = "kuvat\\hirtto7v2.png";
           vaara_aani.play();
           break;
         case 5:
-          document.getElementById("kuva").src = "C:\\Users\\Matias\\OneDrive\\Tiedostot\\kuvat\\hirtto9v2.png";
+          document.getElementById("kuva").src = "kuvat\\hirtto9v2.png";
           vaara_aani.play();
           break;
         case 6:
-          document.getElementById("kuva").src = "C:\\Users\\Matias\\OneDrive\\Tiedostot\\kuvat\\hirtto11v2.png";
+          document.getElementById("kuva").src = "kuvat\\hirtto11v2.png";
           vaara_aani.play();
           break;
         case 7:
           document.getElementById("confirm").innerHTML = "Oikea sana oli: "+satunnainen;
-          document.getElementById("kuva").src = "C:\\Users\\Matias\\OneDrive\\Tiedostot\\kuvat\\hirtto12v2.png";
+          document.getElementById("kuva").src = "kuvat\\hirtto12v2.png";
           over_aani.play();
           setTimeout(function() {
             location.reload();
