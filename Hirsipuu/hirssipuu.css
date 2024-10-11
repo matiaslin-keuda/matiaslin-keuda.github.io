@@ -1,180 +1,138 @@
-h1 {
-    text-align: center;
-    color: black;
-   
-}
-
-#button {
-    width: 4vw;
-    min-width: 4vw;
-    height: 4vh;
-    border: white;
-    background-color: #eab676;
-    border-color: black;
-    border-radius: 1vh;
-    border-style: solid;
-    box-sizing: border-box; 
-    font-size: 0.85vw;
-     
-}
-
-#button:hover {
-    border-color: white;
-    background-color: #ebb68f;
-    color: white;
-}
-
-#confirm {
-    font-size: 1.4vw;
-}
-
-img {
-    width: 100vh;
-    height: auto;
-    text-align: center;
-    padding: 2vh;
-    position: absolute;
-    right: 1vh;
-    top:15vh
-}
-
-#sana {
-    font-size: 5vw;
-    text-align: center;
-    position: absolute;
-    bottom: 70%;
-    left: 50%;
-  
-    transform: translateX(-50%);
-}
-
 body {
-    background-color: #eab676;
-}
+ 
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f3f3f3;
+  overflow: hidden;
 
-#kokeiltu {
-    font-size: 1.4vw;
-    width: 50vw;
-    max-width: 80vw;
-    position: relative;
-    top: 14vh;
-}
 
-#textbox {
-    border-color: black;
-    border-style: dotted;
-    background-color: #eab676;
-    margin-left: 1.5vh;
-    width: 15vw;
-    max-width: 60vw;
-}
-
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-   white-space: nowrap;
+  min-height: 100vh;
+  background: #5e69BA;
+  }
   
-    width: 27vw;
-    height: 10vh;
-   top: 25vh;
-
-}
-
-#kokeile {
+  h1 {
+    text-align: center;
+    color: #333;
+  }
   
-    font-size: 1.4vw;
-}
-
-* {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-#textbutton {
-    width: 5vw;
-    height: 4vh;
-    margin-left: 2.5vw;
-    border: white;
-    background-color: #eab676;
-    border-color: black;
-    border-radius: 1vh;
-    border-style: solid;
-    font-size: 0.85vw;
-}
-
-#textbutton:hover {
-    border-color: white;
+  .container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  #kokeiltu {
+    text-align: center;
+    font-size: 15px;
+  }
+  #arvattava{
+    text-align: center;
+    font-size: 30px;
+  }
+  #sana {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 10px;
+    color: #333;
+  }
+  
+  
+  .letter-button {
+    background-color: #007bff;
     color: white;
-    background-color: #ebb68f;
-}
-
-div.kirjain {
-   
-    /*display: flex;
-    align-items: center;
-    justify-content: space-between;
-   */
-   position: absolute; 
-    bottom: 60vh;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
   
-
-}
-
-@media only screen and (max-width: 600px) {
-   
-   div.kirjain{
-   left:50%;
-   
-   }
-   #confirm{
-    font-size: 2.5vw;
+  .letter-button:hover {
+    background-color: #0056b3;
+  }
   
-   }
-   #button{
+  #textbox {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #textbutton {
+    background-color: white;
+    color: black;
+    border: none;
+  width: 10%;
+    border-radius: 5px;
+    padding: 10px 20px; 
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+  
+  }
+  
+  #textbutton:hover {
+    background-color: rgb(93, 136, 191);
+  }
+  
+  #kuva {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    max-width: 200px;
+    max-height: 100px;
+    
+  }
+  div#row1{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3vw 5vw;
-    font-size: 2vw;
-   }
-   #kuva{
-    max-width: 90%;
-    max-height: 60%;
-    margin-top:80vw;
-   /* border-style: dashed;
-    border-radius: 1px;
-    border-color: black;
-    position: flex;
-    */
-   }
-    #kokeiltu{
-        font-size: 4vw;
-    }
-    #sana {
-        font-size: 9vw;
-        position: flex;
-        top: 10%;
-    }
-    #kokeile{
-        font-size: 3.5vw;
-    }
+    margin-top: 20px;
 
-#textbutton{
+    width: 690px;
+    margin: auto;
+   
+  }
+  div#row3{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3vw 5vw;
-       display: flex;
-    align-items: center;
+    margin-top: 20px;
+    
+    width: 450px;
+    margin: auto;
+    
+  }
+  div#row2{
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    padding: 3vw 5vw;
-    font-size: 2vw;
+    margin-top: 20px;
+   
+    margin: auto;
+    width: 690px;
+   /* box-shadow: 10px 5px 5px black; 
+ /*   width: 55%;*/
+  }
+  .pressed {
+    background-color: red;
 }
-#textbox{
-    padding-top: -0.3vh;
+#square{
+  background-color: white;
+  width: 960px;
+  margin: 0 auto;
+  border-radius: 50px;
 }
-#confirm{
-    font-size: 3.5vw;
-}
+.letter-button{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

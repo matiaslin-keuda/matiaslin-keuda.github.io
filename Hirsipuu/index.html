@@ -1,32 +1,76 @@
 <!DOCTYPE html>
 <html lang="fi">
 <meta charset="UTF-8">
-<script src="hirsipuu.js"></script>
+<script src="hirsipuu2.js"></script>
 <link rel="stylesheet" href="hirssipuu.css">
-
+<link rel="stylesheet" href="style.css">
 <head>
-  <h1>Hirssipuu</h1>
+  <h1>Hirsipuu</h1>
   <title>Document</title>
  
 </head>
 
 <body onload="aloitus()">
+  <script src="Untitled-1.js"></script>
+  <div id="confetti-container">
+   
+  </div> 
 
+  <div id="square">
+  
   <p id="kokeiltu">Testatut Kirjaimet:</p>
-  <h2 id="sana"></h2>
+  <p id="arvattava">sana?</p>
+  <img id="kuva" src="C:\Users\Matias\OneDrive\Tiedostot\kuvat\hirtto1v2.png" alt="kuva" style="visibility: hidden;">
   <div class="kirjain">
-  <p id="confirm">Paina näppäimistöstäsi jotain kirjainta syöttääksesi kirjaimen</p>
-
-  <button id="button" onclick="painettu()">Syötä</button> 
-</div>
-  <div class="container">
-    <p id="kokeile">Kokeile sanaa:</p>
-    <input id="textbox" type="text" onenter>
-    <button id="textbutton" onclick="syotasana()">Syötä </button>
+    <div id="letter-buttons">
+      <div id="row1">
+        <button id="button-Q" class="letter-button" onclick="guessLetter('q', this)">Q</button>
+        <button id="button-W" class="letter-button" onclick="guessLetter('w', this)">W</button>
+        <button id="button-E" class="letter-button" onclick="guessLetter('e', this)">E</button>
+        <button id="button-R" class="letter-button" onclick="guessLetter('r', this)">R</button>
+        <button id="button-T" class="letter-button" onclick="guessLetter('t', this)">T</button>
+        <button id="button-Y" class="letter-button" onclick="guessLetter('y', this)">Y</button>
+        <button id="button-U" class="letter-button" onclick="guessLetter('u', this)">U</button>
+        <button id="button-I" class="letter-button" onclick="guessLetter('i', this)">I</button>
+        <button id="button-O" class="letter-button" onclick="guessLetter('o', this)">O</button>
+        <button id="button-P" class="letter-button" onclick="guessLetter('p', this)">P</button>
+       <button id="button-Å" class="letter-button" onclick="guessLetter('å', this)">Å</button>
+      </div>
+      <div id="row2">
+        <button id="button-A" class="letter-button" onclick="guessLetter('a', this)">A</button>
+        <button id="button-S" class="letter-button" onclick="guessLetter('s', this)">S</button>
+        <button id="button-D" class="letter-button" onclick="guessLetter('d', this)">D</button>
+        <button id="button-F" class="letter-button" onclick="guessLetter('f', this)">F</button>
+        <button id="button-G" class="letter-button" onclick="guessLetter('g', this)">G</button>
+        <button id="button-H" class="letter-button" onclick="guessLetter('h', this)">H</button>
+        <button id="button-J" class="letter-button" onclick="guessLetter('j', this)">J</button>
+        <button id="button-K" class="letter-button" onclick="guessLetter('k', this)">K</button>
+        <button id="button-L" class="letter-button" onclick="guessLetter('l', this)">L</button>
+        <button id="button-Ö" class="letter-button" onclick="guessLetter('ö', this)">Ö</button>
+        <button id="button-Ä" class="letter-button" onclick="guessLetter('ä', this)">Ä</button>
+      </div>
+      <div id="row3">
+        <button id="button-Z" class="letter-button" onclick="guessLetter('z', this)">Z</button>
+        <button id="button-X" class="letter-button" onclick="guessLetter('x', this)">X</button>
+        <button id="button-C" class="letter-button" onclick="guessLetter('c', this)">C</button>
+        <button id="button-V" class="letter-button" onclick="guessLetter('v', this)">V</button>
+        <button id="button-B" class="letter-button" onclick="guessLetter('b', this)">B</button>
+        <button id="button-N" class="letter-button" onclick="guessLetter('n', this)">N</button>
+        <button id="button-M" class="letter-button" onclick="guessLetter('m', this)">M</button>
+      </div>
+    </div>
+   
   </div>
+  <h2 id="sana"></h2>
+  <div class="container">
+    
+    <input id="textbox" placeholder="kokeile sanaa" type="text">
 
-  <img id="kuva" src="hirtto1v2.png" alt="kuva" style="visibility: hidden;">  
-
+    <button id="textbutton" onclick="syotasana()">Syötä</button>
+  </div>
+ 
+<img id="kuva" src="kuvat/hirtto1.png" alt="kuva" style="visibility: hidden;">
+</div id="square">
 </body>
 
 </html>

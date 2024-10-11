@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invaders</title>
+    <style>
+        /* gameover css */
+        #gameOver {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+   
+    <div id="gameOver">Peli ohi! Paina R aloittaaksesi uudelleen</div>
+
+    <script type="module">
+       
+        import kaplay from "https://unpkg.com/kaplay@3001.0.0-alpha.20/dist/kaplay.mjs";
+
+       
+        kaplay();
+
+        loadBean();
+        loadSprite("enemy", "enemy.png");
+        loadSprite("apple", "https://kaboomjs.com/sprites/apple.png");
+
+        const player = add([
+            sprite("bean"),
+            pos(width() / 2, height() - 60),
+            area(),
+            scale(0.75),
+            "player",
+            { health: 3 } 
+        ]);
+
+        const speed = 200;
+        let isPaused = false; 
+
+      //pelaajan liikket + että pelaaja ei mene näytöltä pois?
+        onKeyDown("left", () => {
+            if (!isPaused && player.pos.x > 0) {
+                player.move(-speed, 0);
+            }
+        });
+
+        onKeyDown("right", () => {
+            if (!isPaused && player.pos.x < width() - player.width * player.scale.x) {
+                player.move(speed, 0);
+            }
+        });
+
+        function spawnEnemies() {
+            const enemyCount = 20;
+            const spacing = width() / enemyCount; 
+            const rowSpacing = 50;
+            function enemyShoot(enemy) {
+                // random cooldown 
+                wait(rand(1, 15), () => {
+                    const shootLoop = loop(rand(1, 15), () => {
+                        if (enemy.exists()) {  
+                            add([
+                                rect(4, 12), // Luodin koko
+                                pos(enemy.pos.x + enemy.width * 0.125 / 2, enemy.pos.y + enemy.height * 0.125), // Säädä luodin sijainti mittakaavan perusteella
+                                color(255, 0, 0), 
+                                area(),
+                                move(DOWN, 150),
+                                "bullet" 
+                            ]);
+                        }
+                    });
+
+                 
+                    enemy.on("destroy", () => {
+                        shootLoop.cancel();  
+                    });
+                });
+            }
+
+       
+            for (let i = 0; i < enemyCount; i++) {
+          
+                const enemy1 = add([
+                    sprite("enemy"),
+                    pos(i * spacing, 0), 
+                    area(), 
+                    scale(0.125),
+                    "enemy"
+                ]);
+
+              
+                enemyShoot(enemy1);
+
+               
+                const enemy2 = add([
+                    sprite("enemy"),
+                    pos(i * spacing, -rowSpacing), 
+                    area(), 
+                    scale(0.125), 
+                    "enemy"
+                ]);
+
+             
+                enemyShoot(enemy2);
+            }
+        }
+
+  
+        onUpdate("enemy", (enemy) => {
+            enemy.move(0, 7.5);
+
+       
+            if (enemy.pos.y >= player.pos.y) {
+                console.log("Vihollinen saavutti pelaajan tason/pelaaja hävisi"); 
+                destroy(player); // Tuhoa pelaaja
+                isPaused = true; // Pysäytä peli
+                document.getElementById("gameOver").style.display = "flex"; // Näytä game over overlay
+            }
+        });
+
+       
+        spawnEnemies();
+
+       
+        let canSpawnApple = true;
+        const appleCooldown = 0.75; // omenan cooldown
+
+        
+        function spawnApple() {
+            if (!canSpawnApple) return;
+
+            add([
+                sprite("apple"),
+                pos(player.pos), 
+                area(),
+                scale(0.5),
+                "apple"
+            ]);
+
+            canSpawnApple = false;
+            wait(appleCooldown, () => {
+                canSpawnApple = true;
+            });
+        }
+
+   
+        onKeyDown("space", () => {
+            if (!isPaused) {
+                spawnApple();
+            }
+        });
+
+        
+        onUpdate("apple", (apple) => {
+            apple.move(0, -400);
+        });
+
+        //  törmäys omenoitten ja vihollisten välillä
+        onCollide("apple", "enemy", (apple, enemy) => {
+            destroy(apple); 
+            destroy(enemy); 
+        });
+
+   
+        onCollide("bullet", "player", (bullet, player) => {
+        
+            player.health -= 1;
+
+         
+            if (player.health <= 0) {
+                console.log("Pelaaja tuhoutui"); 
+                destroy(player);
+                isPaused = true; // Pysäytä peli
+                document.getElementById("gameOver").style.display = "flex"; // Näytä game over overlay
+            }
+            destroy(bullet); 
+        });
+
+        // restart
+        onKeyPress("r", () => {
+            if (isPaused) {
+                window.location.reload(); 
+            }
+        });
+        
+     
+        setBackground(0,0,0)
+
+    </script>
+</body>
+</html>
